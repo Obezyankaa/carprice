@@ -1,7 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function OneCar({ el }) {
@@ -23,9 +20,9 @@ export default function OneCar({ el }) {
   const maxDate = new Date(second);
   const isoDate = maxDate.toISOString().slice(11, 19); // 2014-08-05T19:42:51.429Z
   return (
-    <div style={{ display: 'inline-flex', flexDirection: 'column', }} onClick={handler}>
+    <div style={{ display: 'inline-flex', flexDirection: 'column', cursor: 'pointer' }} onClick={handler}>
       <h3>{el.title}</h3>
-      <img style={{ width: '350px', height: '250px', }} src={`${imgRef.current}${el.imgUrl}`} alt="..." />
+      <img style={{ width: '350px', height: '250px' }} src={`${imgRef.current}${el.imgUrl}`} alt="..." />
       <div>
         {' '}
         до конца аукциона

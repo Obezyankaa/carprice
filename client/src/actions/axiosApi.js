@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import { GET_ZAPROS, GET_POISK } from '../constants/actions';
 

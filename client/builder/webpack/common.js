@@ -49,7 +49,7 @@ module.exports = {
 
   resolve: {
     modules: ['./client/src', './node_modules'],
-    extensions: ['.js', '.jsx', '*'],
+    extensions: ['.js', '.jsx'],
     alias: {
       actions: path.resolve(DIR, 'client/src/actions'),
       assets: path.resolve(DIR, 'client/src/assets'),

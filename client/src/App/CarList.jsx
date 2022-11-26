@@ -12,14 +12,24 @@ import { getOneCarThunk, getZaprosDataThunk } from '../actions/axiosApi';
 import Loading from './Loading';
 
 export default function CarList() {
-  const [loading, setLoading] = useState(true);
-  // const [value, setValue] = useState('');
+  const [loading, setLoading] = useState([]);
   const [term, setTerm] = useState('');
   const dispatch = useDispatch();
   const { car } = useSelector((state) => state);
-  const test = useRef();
+  const [items, setItems] = useState([]);
 
-  test.current = setTimeout(() => {
+  // eslint-disable-next-line no-unused-expressions, eqeqeq
+  localStorage.getItem('setLoading') == true;
+  const localValue = localStorage.getItem('setLoading');
+  console.log(localValue);
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem('items'));
+    if (items) {
+      setItems(items);
+    }
+  }, []);
+  setTimeout(() => {
     setLoading(false);
   }, 2000);
 
@@ -31,7 +41,7 @@ export default function CarList() {
     e.preventDefault();
     dispatch(getOneCarThunk(term));
   };
-
+  // rrrer
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
@@ -46,7 +56,7 @@ export default function CarList() {
           <Box mt={3} mb={3}>
             <Divider />
           </Box>
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', }}>{car?.map((el) => (<OneCar key={el.id} el={el} />))}</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>{car?.map((el) => (<OneCar key={el.id} el={el} />))}</div>
         </>
       )}
     </>
